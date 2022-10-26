@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2790214025801529160, guid: a5181caf513b0194ba68bc02365f97a4, type: 3}
+      propertyPath: m_Constraints
+      value: 94
+      objectReference: {fileID: 0}
     - target: {fileID: 1980954002217693201, guid: a5181caf513b0194ba68bc02365f97a4, type: 3}
       propertyPath: m_Name
       value: TowerC
@@ -918,7 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseIndicator: {fileID: 710823579}
-  ObjectToSpawn: {fileID: 1465735634475742113, guid: afa72527476aec94e81c082c837efe1d, type: 3}
+  ObjectToSpawn: {fileID: 1980954002217693201, guid: a5181caf513b0194ba68bc02365f97a4, type: 3}
   spawnCooldownTime: 0.5
 --- !u!4 &1492459034
 Transform:

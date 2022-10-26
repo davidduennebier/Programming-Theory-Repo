@@ -4,35 +4,71 @@ using UnityEngine;
 
 public class Tower : Unit
 {
-    [SerializeField] private float AttackSpeed;
-    [SerializeField] private float AttackRange;
-    [SerializeField] private int Damage;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackCountdown;
+    [SerializeField] private float attackRange;
+    [SerializeField] private int damage;
 
     private bool isUpgradable;
 
-    void SearchForTarget()
-    { 
+    private Vector3 shootFromPosition;
 
-        // TODO:
-        // if Target == null;
-        // suche nach target in Range
-        // wenn target in Range
-        // SetTarget();
-    }
-    void SetTarget()
-    { 
-        // TODO:
-        // Target = new Target;
-    }
+    private Transform target;
 
-    void LookAtTarget(GameObject target)
-    { 
-        // TODO: lookAtFunktion einfügen
-    }
-
-    IEnumerator Attack(GameObject target)
+    private void Awake()
     {
-        // target.Health -= Damage;
-        yield return new WaitForSeconds(AttackSpeed);
+        // Updates turrets only twice a second, not every frame, saves a lot of performance and makes it look cool
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+    }
+
+    void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
+            { 
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
+            }
+        }
+
+        if (nearestEnemy != null && shortestDistance <= attackRange)
+        {
+            target = nearestEnemy.transform;
+        }
+        else 
+        {
+            target = null;
+        }
+    }
+
+    void Update()
+    {
+        if (target == null)
+            return;
+        else
+        {
+            float tarX = target.transform.position.x;
+            float tarZ = target.transform.position.z;
+            Vector3 lookPosition = new Vector3(tarX, transform.position.y, tarZ);
+            transform.LookAt(lookPosition);
+        }
+
+        if (attackCountdown <= 0f)
+        {
+            Attack();
+            attackCountdown = 1f / attackSpeed;
+        }
+
+        attackCountdown -= Time.deltaTime;
+    }
+
+    void Attack()
+    {
+        Debug.Log("SHOOT");
     }
 }
