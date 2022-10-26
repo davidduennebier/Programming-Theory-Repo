@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerBase : Unit
 {
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision collider)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (collider.gameObject.tag == "Enemy")
         {
             Debug.Log("Collision detected.");
-            Destroy(other.gameObject);
+            Destroy(collider.gameObject);
             Health--;
 
             Debug.Log(Health);

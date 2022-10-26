@@ -8,12 +8,11 @@ public class Tower : Unit
     [SerializeField] private float AttackRange;
     [SerializeField] private int Damage;
 
-    private GameObject Target;
-
     private bool isUpgradable;
 
     void SearchForTarget()
     { 
+
         // TODO:
         // if Target == null;
         // suche nach target in Range

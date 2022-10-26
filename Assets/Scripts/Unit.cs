@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    // copied from tutorial
+    protected GameObject m_Target;
 
     // declare Variables
 

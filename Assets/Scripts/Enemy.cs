@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Nav Mesh Navigation
+using UnityEngine.AI;
+
 public class Enemy : Unit
 {
+
+    [SerializeField] private Transform movePositionTransform;
+    private NavMeshAgent navMeshAgent;
+
     [SerializeField] private float movementSpeed;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -20,6 +28,6 @@ public class Enemy : Unit
 
     void Move()
     {
-        transform.position += new Vector3(0, 0, (-1 * movementSpeed * Time.deltaTime));
+        navMeshAgent.destination = movePositionTransform.position;
     }
 }
