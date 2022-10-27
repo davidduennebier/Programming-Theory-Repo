@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         if (!spawnCooldown)
         {
             spawnCooldown = true;
-            Instantiate(ObjectToSpawn, worldPosition, ObjectToSpawn.transform.rotation);
+            Instantiate(ObjectToSpawn, (worldPosition + ObjectToSpawn.transform.position), ObjectToSpawn.transform.rotation);
             StartCoroutine("SpawnCooldown");
         }
     }

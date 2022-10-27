@@ -9,7 +9,6 @@ public class Tower : Unit
     [SerializeField] private float attackSpeed;
     [SerializeField] private float attackCountdown;
     [SerializeField] private float attackRange;
-    [SerializeField] private int damage;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject projectileSpawnPoint;
 
@@ -19,7 +18,7 @@ public class Tower : Unit
 
     private void Awake()
     {
-        // Updates turrets only twice a second, not every frame, saves a lot of performance and makes it look cool
+        // Updates turrets only twice a second, not every frame, saves a lot of performance
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -71,7 +70,6 @@ public class Tower : Unit
 
     void Attack()
     {
-        Debug.Log("SHOOT");
         GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, projectilePrefab.transform.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
 

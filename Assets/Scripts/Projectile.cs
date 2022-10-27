@@ -5,7 +5,23 @@ public class Projectile : MonoBehaviour
     private Transform target;
 
     [SerializeField] private float projectileSpeed = 50.0f;
-    [SerializeField] private GameObject impactEffect;
+
+    private int m_damage = 25;
+    public int damage
+    { 
+        get { return m_damage; }
+        set
+        {
+            if (value < 0)
+            {
+                Debug.LogError("Damage can't be negative.");
+            }
+            else
+            { 
+                m_damage = value;
+            }
+        }
+    }
 
     public void Seek(Transform _target)
     {
@@ -25,21 +41,7 @@ public class Projectile : MonoBehaviour
         // die Richtung und Distanz ermitteln:
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = projectileSpeed * Time.deltaTime;
-
-        // ein eleganter Weg um eine Collision herum
-        if (dir.magnitude <= distanceThisFrame)
-        {
-            HitTarget();
-            return;
-        }
-
+        // Bullet bewegen
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-    }
-
-    void HitTarget()
-    {
-        GameObject effectInstance = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectInstance, 2.0f);
-        Destroy(gameObject);
     }
 }

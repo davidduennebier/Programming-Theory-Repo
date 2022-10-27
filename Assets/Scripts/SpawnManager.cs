@@ -25,7 +25,6 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemyWave()
     {
-        Debug.Log("Wave is " + wave);
         // hier ließen sich die Waves jetzt designen über switch cases
         for (int i = 0; i < wave; i++)
         {
@@ -39,6 +38,5 @@ public class SpawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         Instantiate(EnemyToSpawn[1], new Vector3(0, EnemyToSpawn[0].transform.position.y, enemySpawnPointZ), EnemyToSpawn[0].transform.rotation);
-        Debug.Log("Enemy spawned.");
     }
 }

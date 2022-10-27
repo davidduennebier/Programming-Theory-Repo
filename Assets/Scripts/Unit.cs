@@ -8,21 +8,12 @@ public class Unit : MonoBehaviour
     protected GameObject m_Target;
 
     // declare Variables
+    [SerializeField] protected int startHealth = 100;
+    public int currentHealth;
 
-    [SerializeField] private int m_Health;
-
-    public int Health
-    { 
-        get { return m_Health; }
-        set {
-            if (value < 0)
-            {
-                m_Health = 0;
-            }
-            else 
-            {
-                m_Health = value;
-            }
-        }
+    void Start()
+    {
+        currentHealth = startHealth;
+        Debug.Log(currentHealth);
     }
 }

@@ -14,12 +14,13 @@ public class PlayerBase : Unit
             Debug.Log("Collision detected.");
             Destroy(collider.gameObject);
 
-            Health--;
-            healthIndicator[Health].SetActive(false);
+            if(currentHealth > 0)
+                currentHealth--;
+            healthIndicator[currentHealth].SetActive(false);
 
-            Debug.Log(Health);
+            Debug.Log(currentHealth);
 
-            if (Health == 0)
+            if (currentHealth == 0)
             {
                 //GameManager.GameOver();
                 Debug.Log("Game Over.");
