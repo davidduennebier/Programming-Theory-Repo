@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: -2790214025801529160}
   m_Layer: 0
   m_Name: TowerC
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980954002217693201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 2, y: 4, z: 2}
   m_Children:
   - {fileID: 9124293203870249400}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHealth: 100
   currentHealth: 0
-  attackSpeed: 1.5
+  attackSpeed: 2
   attackCountdown: 0
   attackRange: 20
   projectilePrefab: {fileID: 5375449599241346231, guid: c844edefacc47d24487b1afc0a7173dd, type: 3}

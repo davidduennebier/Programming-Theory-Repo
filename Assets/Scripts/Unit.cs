@@ -14,6 +14,5 @@ public class Unit : MonoBehaviour
     void Start()
     {
         currentHealth = startHealth;
-        Debug.Log(currentHealth);
     }
 }
