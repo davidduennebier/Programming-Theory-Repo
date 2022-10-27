@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Tower : Unit
 {
+    [Header("Attributes")]
+
     [SerializeField] private float attackSpeed;
     [SerializeField] private float attackCountdown;
     [SerializeField] private float attackRange;
     [SerializeField] private int damage;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectileSpawnPoint;
 
     private bool isUpgradable;
-
     private Vector3 shootFromPosition;
-
     private Transform target;
 
     private void Awake()
@@ -70,5 +72,10 @@ public class Tower : Unit
     void Attack()
     {
         Debug.Log("SHOOT");
+        GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, projectilePrefab.transform.rotation);
+        Projectile projectile = projectileGO.GetComponent<Projectile>();
+
+        if (projectile != null)
+            projectile.Seek(target);
     }
 }

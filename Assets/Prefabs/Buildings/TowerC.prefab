@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856677943523504920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2187913358770891639}
@@ -145,6 +145,8 @@ MonoBehaviour:
   attackCountdown: 0
   attackRange: 20
   damage: 3
+  projectilePrefab: {fileID: 5375449599241346231, guid: c844edefacc47d24487b1afc0a7173dd, type: 3}
+  projectileSpawnPoint: {fileID: 1856677943523504920}
 --- !u!54 &-2790214025801529160
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,5 +161,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 94
   m_CollisionDetection: 0
