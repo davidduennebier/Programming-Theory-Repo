@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] ObjectToSpawn;
     [SerializeField] private float spawnCooldownTime;
     private bool spawnCooldown;
+    private bool _bMouseOverObject;
 
     private Vector3 screenPosition;
     private Vector3 worldPosition;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
         // ========================== Mouse und Indikator Bewegung ==========================
 
+
         // Übersetzung von ScreenPosition in WorldPosition via Raycast
         screenPosition = Input.mousePosition;
         // send out a ray from the screen position (camera near clip plane) to the equivalent point along the cameras frustum
@@ -55,12 +57,14 @@ public class PlayerController : MonoBehaviour
         }
         MouseIndicator.transform.position = worldPosition;
 
+
         // if mouse hovers an object
         // something should happen
         if (_selection != null)
         {
             var selectionRenderer = _selection.GetComponent<Renderer>();
             selectionRenderer.material = defaultMaterial;
+            _bMouseOverObject = false;
             _selection = null;
         }
 
@@ -75,6 +79,7 @@ public class PlayerController : MonoBehaviour
                 {
                     defaultMaterial = selectionRenderer.material;
                     selectionRenderer.material = highlightMaterial;
+                    _bMouseOverObject = true;
                 }
                 _selection = selection;
             }
@@ -120,7 +125,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             // Spawn ObjectToSpawn at mousePosition
+            if (!_bMouseOverObject)
                 SpawnObject();
+            else
+            {
+                Destroy(_selection.gameObject);
+                _bMouseOverObject = false;
+            }
         }
     }
 
