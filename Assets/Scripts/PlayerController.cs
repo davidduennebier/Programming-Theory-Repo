@@ -217,21 +217,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    void SpawnObject()
-    {
-        if (!spawnCooldown)
-        {
-            spawnCooldown = true;
-            Instantiate(ObjectToSpawn[0], (worldPosition + ObjectToSpawn[0].transform.position), ObjectToSpawn[0].transform.rotation);
-            StartCoroutine("SpawnCooldown");
-            Debug.Log("Spawned new tower.");
-        }
-    }
-
-    private IEnumerator SpawnCooldown()
-    {
-        yield return new WaitForSeconds(spawnCooldownTime);
-        spawnCooldown = false;
-    }
 }
