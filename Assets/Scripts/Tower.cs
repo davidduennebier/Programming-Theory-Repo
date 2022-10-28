@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// INHERITANCE - Tower derives from Unit
 public class Tower : Unit
 {
     [Header("Attributes")]
@@ -11,6 +13,8 @@ public class Tower : Unit
     [SerializeField] private float attackRange;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject projectileSpawnPoint;
+    [SerializeField] public int buyPrice;
+    [SerializeField] public int upgradePrice;
 
     private bool isUpgradable;
     private Vector3 shootFromPosition;
@@ -56,6 +60,8 @@ public class Tower : Unit
             float tarX = target.transform.position.x;
             float tarZ = target.transform.position.z;
             Vector3 lookPosition = new Vector3(tarX, transform.position.y, tarZ);
+
+            // POLYMORPHISM - overriding the LookAt()-Function which could either just take Position or a Position and worldUp Vector3.up
             transform.LookAt(lookPosition);
         }
 
@@ -68,6 +74,7 @@ public class Tower : Unit
         attackCountdown -= Time.deltaTime;
     }
 
+    // ABSTRACTION
     void Attack()
     {
         GameObject projectileGO = Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, projectilePrefab.transform.rotation);

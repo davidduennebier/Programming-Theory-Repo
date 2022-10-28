@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
     protected GameObject m_Target;
 
     // declare Variables
+    [SerializeField] public int worth;
     [SerializeField] protected int startHealth = 100;
     public int currentHealth;
 

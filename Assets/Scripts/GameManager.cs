@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager Instance;
+
+    [Header("Start Values")]
+    [SerializeField] private int currency = 100; // default overwritten in Inspector
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    // ABSTRACTION AND ENCAPSULATION
+    public void AddCurrency(int value)
     {
-        
+        Instance.currency += value;
+        Debug.Log(Instance.currency);
+    }
+
+    // ABSTRACTION AND ENCAPSULATION
+    public int GetCurrency()
+    {
+        return currency;
+    }
+
+    public enum GameState { 
+    
     }
 }

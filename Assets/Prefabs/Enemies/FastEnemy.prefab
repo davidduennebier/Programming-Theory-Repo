@@ -376,7 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08df76d26471ba46beab9d86dad70d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  worth: 15
+  startHealth: 100
+  currentHealth: 0
   movePositionTransform: {fileID: 6244606322737966264, guid: 1ecdbeb619cdf2a4ab9822b6f5c2d839, type: 3}
   movementSpeed: 6
   impactEffect: {fileID: 654080137622124692, guid: ed056c7a453bd934abf086f7cec53cab, type: 3}

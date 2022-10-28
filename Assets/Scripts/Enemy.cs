@@ -8,6 +8,7 @@ using UnityEngine.UI;
 // Nav Mesh Navigation
 using UnityEngine.AI;
 
+// INHERITANCE - Enemy derives from Unit
 public class Enemy : Unit
 {
 
@@ -52,10 +53,18 @@ public class Enemy : Unit
 
             if (currentHealth <= 0)
             {
-                GameObject deathInstance = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation);
-                Destroy(effectInstance, 2.0f);
-                Destroy(gameObject);
+                Die();
             }
         }
+    }
+
+    // ABSTRACTION
+    void Die()
+    {
+        GameManager.Instance.AddCurrency(worth);
+
+        GameObject deathInstance = (GameObject)Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(deathInstance, 2.0f);
+        Destroy(gameObject);
     }
 }

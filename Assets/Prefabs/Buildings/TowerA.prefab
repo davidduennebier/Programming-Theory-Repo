@@ -140,13 +140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c6af15bbac50549bb7d40b66fc31c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worth: 50
   startHealth: 100
-  currentHealth: 0
+  currentHealth: 10
   attackSpeed: 1
   attackCountdown: 0
   attackRange: 10
   projectilePrefab: {fileID: 5375449599241346231, guid: c844edefacc47d24487b1afc0a7173dd, type: 3}
   projectileSpawnPoint: {fileID: 1856677943523504920}
+  buyPrice: 100
+  upgradePrice: 200
 --- !u!54 &-2790214025801529160
 Rigidbody:
   m_ObjectHideFlags: 0
