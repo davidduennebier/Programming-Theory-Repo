@@ -111,7 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08df76d26471ba46beab9d86dad70d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worth: 20
   startHealth: 200
+  currentHealth: 0
   movePositionTransform: {fileID: 6244606322737966264, guid: 1ecdbeb619cdf2a4ab9822b6f5c2d839, type: 3}
   movementSpeed: 1
   impactEffect: {fileID: 0}
